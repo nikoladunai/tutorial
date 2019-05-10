@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t nikoladunai/tutorial -f Dockerfile.dev .
+
+script:
+  - docker run nikoladunai/tutorial npm run test -- --coverage
